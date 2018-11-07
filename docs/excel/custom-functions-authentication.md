@@ -6,17 +6,19 @@ ms.date: 11/6/2018
 
 # Authentication
 
-You may wish to verify that a user is authenticated before allowing them access to your custom functions. Implementing authentication for custom functions does not differ significantly in process from most Office add-ins, but there are some specific APIs used by custom functions which you should use.
+You may wish to verify that a user is authenticated before allowing them access to your custom functions. Implementing authentication for custom functions does not differ significantly in process from most Office add-ins, but there are some specific APIs used by custom functions that you should use.
   
 ## AsyncStorage
 
-The `AsyncStorage` is common and accessible to both custom functions and UI elements of your add-in such as the task pane. Because of this commonality, you can use it to store information which needs to pass back and forth between these parts of your add in. For example, if a user enters their credentials through a UI element, resulting access and refresh tokens can be captured and stored in `AsyncStorage` which also makes this information available to custom functions. Additionally,  `AsyncStorage` offers a sandboxed environment on a user's device and cannot be accessed by other add-ins.  
-  
-There are some locations which should not be used to store data if you are using custom functions:  
+The `AsyncStorage` object is common and accessible to both custom functions and UI elements of your add-in such as the task pane. Because of this commonality, you can use it to store information that needs to pass back and forth between these parts of your add in.
 
-    - [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage): Custom functions do not have access to the global `window` object and therefore have no access to data stored in `localStorage`.
+For example, if a user enters their credentials through a UI element like the task pane, you should store the resulting tokens in `AsyncStorage` if your custom function makes use of them.  
 
-    - `Office.context.document.settings`:  `Office.context.document.settings` is not secure and information can be extracted by anyone that has access to the document either directly, through your add-in or through another add-in.
+Additionally,  `AsyncStorage` offers a sandboxed environment on a user's device and cannot be accessed by other add-ins.  Note that there are some locations which should not be used to store data if you are using custom functions:  
+
+- [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage): Custom functions do not have access to the global `window` object and therefore have no access to data stored in `localStorage`.
+
+- `Office.context.document.settings`:  `Office.context.document.settings` is not secure and information can be extracted by anyone that has access to the document either directly, through your add-in or through another add-in.
 
 ## Dialog API
 
