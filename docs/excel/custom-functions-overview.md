@@ -1,5 +1,5 @@
 ---
-ms.date: 12/5/2018
+ms.date: 12/17/2018
 description: Create custom functions in Excel using JavaScript.
 title: Create custom functions in Excel (Preview)
 ---
@@ -261,7 +261,7 @@ When you specify metadata for a streaming function in the JSON metadata file, yo
 }
 ```
 
-## Canceling a function
+### Canceling a function
 
 In some situations, you may need to cancel the execution of a streaming custom function to reduce its bandwidth consumption, working memory, and CPU load. Excel cancels the execution of a function in the following situations:
 
@@ -405,6 +405,9 @@ function getComment(x) {
 - **May 7, 2018**: Shipped* support for Mac, Excel Online, and synchronous functions running in-process
 - **September 20, 2018**: Shipped support for custom functions JavaScript runtime. For more information, see [Runtime for Excel custom functions](custom-functions-runtime.md).
 - **October 20, 2018**: With the [October Insiders build](https://support.office.com/en-us/article/what-s-new-for-office-insiders-c152d1e2-96ff-4ce9-8c14-e74e13847a24), Custom Functions now requires the 'id' parameter in your [custom functions metadata](custom-functions-json.md) for Windows Desktop and Online. On Mac, this parameter should be ignored.
+- **November 20, 2018**:  Shipped support for optional parameters, optional namespaces, and the any type.
+- **December 12, 2018**: Shipped support for custom functions to get the address.
+
 
 
 \* to the [Office Insider](https://products.office.com/office-insider) channel (formerly called "Insider Fast")
